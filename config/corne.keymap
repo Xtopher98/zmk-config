@@ -25,6 +25,8 @@
 &kp LEFT_COMMAND  &kp Z  &kp X  &kp C      &kp V       &kp B      &kp N          &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
                                 &to 1  &kp SPACE  &kp LSHIFT    &kp RET  &kp BACKSPACE      &to 2
             >;
+
+            label = "base";
         };
 
         number_layer {
