@@ -57,13 +57,13 @@ ZMK_BEHAVIOR(hmr, hold_tap,
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          &kp Q         &kp W         &kp F         &kp P         &kp B                           &kp J         &kp L         &kp U         &kp Y         &kp SQT
+          &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp ESC
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G                           &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
+          &kp LCTRL     &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O   &kp SQT
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &kp Z         &kp X         &kp C         &kp D         &kp V                           &kp K         &kp H         &kp COMMA     &kp DOT       &kp SEMI
+          &kp LGUI      &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &kp COMMA     &kp DOT       &kp SEMI      &kp LALT
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                    &kp ESC       &lt NAV SPACE &kp TAB           &kp RET       &bs_del_num   &ss_cw
+                                                    &to 1         &kp SPACE     &kp LSHIFT        &kp ENTER     &kp BKSP      &to 2
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
