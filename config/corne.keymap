@@ -232,6 +232,12 @@ ZMK_BEHAVIOR(win_sleep, macro,
     bindings = <&kp LG(X) &kp U &kp S>;
 )
 
+ZMK_BEHAVIOR(ctrl_alt_del, macro,
+    wait-ms = <20>;
+    tap-ms = <10>;
+    bindings = <&kp LCTRL &kp LALT &kp DEL>;
+)
+
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
@@ -258,7 +264,7 @@ ZMK_LAYER(base,
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(navigation,
+ZMK_LAYER(nav,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
           ___           ___           ___           &kp LS(TAB)   &swapper      ___               &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___           ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -270,9 +276,9 @@ ZMK_LAYER(navigation,
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(number,
+ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          ___           ___           ___           ___           ___           ___               ___           &kp N7        &kp N8        &kp N9        ___           ___
+          ___           &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           ___           ___           ___           ___           ___           ___               ___           &kp N4        &kp N5        &kp N6        ___           ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -282,7 +288,7 @@ ZMK_LAYER(number,
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(function,
+ZMK_LAYER(func,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
           ___           &kp F12       &kp F7        &kp F8        &kp F9        ___               ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    &win_sleep    ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -329,82 +335,3 @@ ZMK_LAYER(mouse,
                                                     ___           ___           ___               U_BTN2        U_BTN1        ___  
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
-
-// / {
-//     combos {
-//         compatible = "zmk,combos";
-//         combo_esc {
-//             timeout-ms = <50>;
-//             key-positions = <1 2>;
-//             bindings = <&kp ESC>;
-//         };
-//     };
-// };
-
-// / {
-//     keymap {
-//         compatible = "zmk,keymap";
-
-//         default_layer {
-//             // -----------------------------------------------------------------------------------------
-//             // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | ESC |
-//             // | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '  |
-//             // | GUI |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /   | ALT |
-//             //                    | 0 | SPC | SFT |   | ENT | BCK  | 2 |
-
-//             bindings = <
-//   &kp TAB  &kp Q  &kp W  &kp F      &kp P       &kp B      &kp J          &kp L      &kp U    &kp Y  &kp SEMI       &kp ESC
-// &kp LCTRL  &kp A  &kp R  &kp S      &kp T       &kp G      &kp M          &kp N      &kp E    &kp I     &kp O       &kp SQT
-//  &kp LGUI  &kp Z  &kp X  &kp C      &kp D       &kp V      &kp K          &kp H  &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
-//                          &to 1  &kp SPACE  &kp LSHIFT    &kp RET  &kp BACKSPACE      &to 2
-//             >;
-
-//             label = "base";
-//         };
-
-//         number_layer {
-//             // -----------------------------------------------------------------------------------------
-//             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-//             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-//             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//             //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-//             bindings = <
-//    &kp TAB        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5      &kp N6    &kp N7    &kp N8     &kp N9  &kp N0  &trans
-// &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &trans  &trans
-//     &trans         &none         &none         &none         &none         &none       &none  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-//                                                &to 0        &trans        &trans      &trans    &trans    &trans
-//             >;
-
-//             label = "num";
-//         };
-
-//         symbol_layer {
-//             // -----------------------------------------------------------------------------------------
-//             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-//             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-//             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//             //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-//             bindings = <
-//        &kp TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET   &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR     &trans
-//      &kp LCTRL    &trans  &trans    &trans    &trans     &trans    &kp MINUS  &kp EQUAL         &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE
-// &kp LEFT_SHIFT    &trans  &trans    &trans    &trans     &trans    &kp UNDER   &kp PLUS         &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-//                                      &to 0    &trans     &trans       &trans     &trans            &to 3
-//             >;
-
-//             label = "sym";
-//         };
-
-//         pad_layer {
-//             bindings = <
-// &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
-// &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-// &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
-//                          &to 0  &trans  &trans    &trans  &kp NUMBER_0         &to 2
-//             >;
-
-//             label = "pad";
-//         };
-//     };
-// };
