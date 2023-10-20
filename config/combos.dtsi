@@ -73,4 +73,9 @@ ZMK_COMBO(pipe,  &kp PIPE,      RM3 RB3,     BSE NAV NUM, COMBO_TERM_SLOW)
 
 
 /* Other combos */
+ZMK_BEHAVIOR(ctrl_alt_del, macro,
+    wait-ms = <20>;
+    tap-ms = <10>;
+    bindings = <&kp LCTRL &kp LALT &kp DEL>;
+)
 ZMK_COMBO(cad,   &ctrl_alt_del, LT5 LM5 LB5, ALL,         COMBO_TERM_SLOW)
