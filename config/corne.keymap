@@ -30,7 +30,7 @@
 #define FN 3
 #define SYS 4
 #define UC 5
-#define MOUSE 6
+#define MSE 6
 
 #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
@@ -130,9 +130,9 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 // smart-mouse, requires PR #1366
 ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+    bindings = <&tog MSE>, <&none>, <&tog MSE>;
     ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RH0 RH1>;
-    ignored-layers = <MOUSE>;
+    ignored-layers = <MSE>;
 )
 
 /* Custom behaviors */
@@ -190,11 +190,11 @@ ZMK_BEHAVIOR(lt_spc, hold_tap,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&spc_morph>;
 )
-ZMK_BEHAVIOR(mouse, hold_tap,
+ZMK_BEHAVIOR(mse_hold, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo MOUSE>, <&smart_mouse>;
+    bindings = <&mo>, <&smart_mouse>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&dot_spc>;
@@ -262,7 +262,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp LGUI      &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    &mouse  &lt_spc NAV 0 &lt FN RET        &smart_shft   &bs_del       SMART_NUM
+                                                    &mse_hold MSE &lt_spc NAV 0 &lt FN RET        &smart_shft   &bs_del       SMART_NUM
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 ) 
 
