@@ -134,12 +134,6 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
     ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RH0 RH1>;
     ignored-layers = <MSE>;
 )
-ZMK_BEHAVIOR(mse_hold, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&smart_mouse>;
-)
 
 /* Custom behaviors */
 
@@ -262,7 +256,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp LGUI      &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    &mse_hold MSE &lt_spc NAV 0 &lt FN RET        &smart_shft   &bs_del       SMART_NUM
+                                                    &smart_mouse  &lt_spc NAV 0 &lt FN RET        &smart_shft   &bs_del       SMART_NUM
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 ) 
 
