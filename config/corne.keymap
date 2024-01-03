@@ -28,9 +28,10 @@
 #define NAV 1
 #define NUM 2
 #define FN 3
-#define SYS 4
-#define UC 5
-#define MSE 6
+#define HND 4
+#define SYS 5
+#define UC 6
+#define MSE 7
 
 #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
@@ -67,7 +68,7 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
+// MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
 MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
 MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
 
@@ -225,6 +226,12 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
+// tap: cut | shft + tap: redo
+ZMK_BEHAVIOR(undo_redo, mod_morph,
+    bindings = <&kp LC(Z)>, <&kp LS(LC(Z))>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
 // Windows sleep key
 ZMK_BEHAVIOR(win_sleep, macro,
     wait-ms = <500>;
@@ -252,7 +259,7 @@ ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
           &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp LG(L)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &kp LCTRL     &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O   &kp SQT
+          &to HND       &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O   &kp SQT
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp LGUI      &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -293,6 +300,18 @@ ZMK_LAYER(func,
           ___           &kp F10       &kp F1        &kp F2        &kp F3        ___               PIN_APP       PIN_WIN       DSK_MGR       ___           ___           ___
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                     ___           ___           ___               &kp C_MUTE    &kp C_PP      ___
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(hand,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          ___           ___           ___           NAV_UP        &swapper      ___               ___           ___           ___           ___           ___           ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &to BSE       ___           NAV_LEFT      NAV_DOWN      NAV_RIGHT     ___               ___           ___           ___           ___           ___           ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          ___           ___           ___           &kp PSCRN     ___           ___               ___           ___           ___           ___           ___           ___
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                    ___           &lt_spc NAV 4 ___               ___           ___           ___
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
