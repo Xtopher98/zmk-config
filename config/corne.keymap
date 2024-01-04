@@ -87,8 +87,8 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
 #define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_UP    &mt LC(PG_UP) UP     // tap: up    | long-tap: page up
+#define NAV_DOWN  &mt LC(PG_DN) DOWN   // tap: down  | long-tap: page down
 #define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
@@ -131,7 +131,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 // smart-mouse, requires PR #1366
 ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MSE>, <&none>, <&tog MSE>;
+    bindings = <&to MSE>, <&none>, <&to MSE>;
     ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RB1 RB3 RH0 RH1 RH2>;
     ignored-layers = <MSE>;
 )
@@ -265,7 +265,7 @@ ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
           &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp LG(L)
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &smart_hand       &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O   &kp SQT
+          &smart_hand   &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O   &kp SQT
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp LGUI      &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -275,9 +275,9 @@ ZMK_LAYER(base,
 
 ZMK_LAYER(nav,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          ___           ___           ___           &kp LS(TAB)   &swapper      ___               &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___           ___
+          ___           ___           ___           &kp LS(TAB)   &swapper      ___               &kp HOME      NAV_BSPC      NAV_UP        NAV_DEL       ___           ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          ___           &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___               &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET       ___
+          ___           &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___               &kp END       NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           ___           ___           ___           &kp PSCRN     ___           ___               &kp INS       &kp TAB       &kp LT        &kp GT        ___           ___
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
