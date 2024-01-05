@@ -87,8 +87,8 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
 #define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(PG_UP) UP     // tap: up    | long-tap: page up
-#define NAV_DOWN  &mt LC(PG_DN) DOWN   // tap: down  | long-tap: page down
+#define NAV_UP    &mt PG_UP UP     // tap: up    | long-tap: page up
+#define NAV_DOWN  &mt PG_DN DOWN   // tap: down  | long-tap: page down
 #define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
@@ -275,9 +275,9 @@ ZMK_LAYER(base,
 
 ZMK_LAYER(nav,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          ___           ___           ___           &kp LS(TAB)   &swapper      ___               &kp HOME      NAV_BSPC      NAV_UP        NAV_DEL       ___           ___
+          ___           ___           ___           &kp LS(TAB)   &swapper      ___               &kp LC(HOME)  NAV_BSPC      NAV_UP        NAV_DEL       ___           ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          ___           &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___               &kp END       NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET       ___
+          ___           &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___               &kp LC(END)   NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           ___           ___           ___           &kp PSCRN     ___           ___               &kp INS       &kp TAB       &kp LT        &kp GT        ___           ___
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
