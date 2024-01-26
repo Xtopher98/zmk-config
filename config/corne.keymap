@@ -254,7 +254,7 @@ ZMK_BEHAVIOR(win_sleep, macro,
 #define PIN_APP     &kp LG(LC(LS(A)))        // pin application across desktops
 #define DSK_MGR     &kp LA(GRAVE)            // desktop manager
 #define VOL_DOWN    &hmr LCTRL C_VOL_DN
-#define MEH         &kp LC(LA(LS))
+#define MEH         &kp LC(LA(LSHFT))
 #define CA_DEL      &mt MEH LC(LA(DEL))     //control alt delete
 
 ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
