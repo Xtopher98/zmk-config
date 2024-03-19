@@ -256,7 +256,7 @@ ZMK_BEHAVIOR(win_sleep, macro,
 #define VOL_DOWN    &hmr LCTRL C_VOL_DN
 #define meh         LC(LA(LSHFT))
 #define CA_DEL      &mt LC(LA(DEL)) meh      //hold: control alt delete | tap: meh
-#define SPACE       &lt_spc NAV SPACE        //hold: NAV layer          | tap: space
+#define SPACE_NAV   &lt_spc NAV SPACE        //hold: NAV layer          | tap: space
 
 ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
 
@@ -271,7 +271,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp LCTRL     &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    &smart_mouse  SPACE         &lt FN RET        &smart_shft   &bs_del       SMART_NUM
+                                                    &smart_mouse  SPACE_NAV     &lt FN RET        &smart_shft   &bs_del       SMART_NUM
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 ) 
 
