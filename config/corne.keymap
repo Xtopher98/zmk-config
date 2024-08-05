@@ -245,7 +245,7 @@ ZMK_MACRO(win_sleep,
 )
 
 // tap: meh | hold: toggle layer
-ZMK_HOLD_TAP(tog_tap,,
+ZMK_HOLD_TAP(tog_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
