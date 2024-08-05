@@ -10,7 +10,7 @@
 
 //https://github.com/urob/zmk-helpers
 #include "zmk-helpers/helper.h"
-#include "zmk-helpers/unicode_chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/greek.dtsi"
 
 /* use helper macros to define left and right hand keys */
 #include "zmk-helpers/key-labels/42.h"                            // keyposition helpers
