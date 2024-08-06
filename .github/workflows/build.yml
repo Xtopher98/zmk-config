@@ -4,8 +4,14 @@
 #   build:
 #     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
-on: [push, pull_request, workflow_dispatch]
+name: Build ZMK firmware
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - config/**
+      - build.yaml
 
 jobs:
   build:
-    uses: urob/zmk/.github/workflows/build-user-config.yml@build-with-submodules
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
