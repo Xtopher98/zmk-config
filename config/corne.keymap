@@ -258,7 +258,7 @@ ZMK_HOLD_TAP(tog_tap,
 #define PIN_APP     &kp LG(LC(LS(A)))        // pin application across desktops
 #define DSK_MGR     &kp LA(GRAVE)            // desktop manager
 #define VOL_DOWN    &hmr LCTRL C_VOL_DN
-#define CA_DEL      &mt LC(LA(DEL)) meh      //hold: control alt delete | tap: meh
+#define CA_DEL      &mt LC(LA(DEL)) ESC      //hold: control alt delete | tap: escape
 #define HND_LYR     &tog_tap HND meh         //hold: HAND layer         | tap: meh
 #define SPACE_NAV   &lt_spc NAV SPACE        //hold: NAV layer          | tap: space
 
