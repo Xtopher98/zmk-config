@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+ // based on urob's zmk-config https://github.com/urob/zmk-config
+
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // requires auto-layer module
 #include <dt-bindings/zmk/bt.h>
@@ -13,12 +15,21 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/unicode-chars/greek.dtsi"
 
+/*                KEY POSITIONS
+  ╭─────────────────────────╮ ╭─────────────────────────╮
+  │ LT5 LT4 LT3 LT2 LT1 LT0 │ │ RT0 RT1 RT2 RT3 RT4 RT5 │
+  │ LM5 LM4 LM3 LM2 LM1 LM0 │ │ RM0 RM1 RM2 RM3 RM4 RM5 │
+  │ LB5 LB4 LB3 LB2 LB1 LB0 │ │ RB0 RB1 RB2 RB3 RB4 RB5 │
+  ╰───────────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────────╯
+              ╰─────────────╯ ╰─────────────╯
+*/
 /* use helper macros to define left and right hand keys */
-#include "zmk-helpers/key-labels/42.h"                            // keyposition helpers
+#include "zmk-helpers/key-labels/42.h"                            // key position helpers
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                                  // thumb keys  
 #define LEFT_KEYS  LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LB5 LH2 LH1 LH0 // left keys for one hand smart activation
+
 
 #define ___ &trans
 
@@ -143,7 +154,7 @@ ZMK_TRI_STATE(smart_hand,
 // Alt+Tab swapper, requires PR #1366
 ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-    ignored-key-positions = <LT2>;
+    ignored-key-positions = <LT2 RT2 RM1 RM2 RM3>;
 )
 
 // Sticky layer + sticky shift (workaround for issue #1421)
